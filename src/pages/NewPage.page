@@ -1,0 +1,22 @@
+<apex:page showHeader="false" id="SiteTemplate">
+  <apex:stylesheet value="{!URLFOR($Resource.SiteSamples, 'SiteStyles.css')}"/>
+  <apex:insert name="header">
+    <c:SiteHeader />
+    <hr/>
+  </apex:insert>
+  <apex:insert name="body"/>
+  <apex:insert name="footer">
+    <hr/>
+    <h2>Welcome to ENCLUDE  - Test Page on Salesforce Sites
+ <br>A new self-service facility to our   Relationship Management Technology</h2><br>
+<br>
+
+</h2>
+
+
+I am delighted to be learning the skills to present this offering to our clients <br>
+</p>
+    <c:SiteFooter />
+    <site:googleAnalyticsTracking />
+  </apex:insert>
+</apex:page>

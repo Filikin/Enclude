@@ -1,0 +1,36 @@
+@isTest
+private class testResponseCheck 
+{
+    static testMethod void SMStestScheduler() 
+    {
+    	
+    	SMS_Server_Test__c Proxy = new SMS_Server_Test__c(Last_response_from_SMS_server__c = system.now(), Server_not_responding__c = false);
+    	insert Proxy;
+    	
+    	
+    
+      	system.assert(Proxy != null);
+      	datetime LastResponse = Proxy.Last_response_from_SMS_server__c;
+      	datetime RightNow = system.now();
+      	long dt1 = RightNow.getTime() / 1000 / 60;  //getTime gives us milliseconds, so divide by 1000 for seconds 
+      	long dt2 = (LastResponse.getTime() / 1000 / 60) - 80; //and then devide by 60 for minutes
+      	//long dt2 = (dt2-80);
+      	double Difference = (dt1-dt2);
+      	
+      	if((Difference>=75) && (Proxy.Server_not_responding__c == false))
+      	//Checks that an SMS reply has been received with in the last 75 minutes
+      	{
+      		Proxy.Server_not_responding__c = true;
+      		update Proxy;
+      	}
+      	else
+      	{
+      		Proxy.Server_not_responding__c = false;
+      		update Proxy;
+      	}
+    	
+    	
+    	system.assertEquals(Proxy.Server_not_responding__c, true);
+    }
+    
+}

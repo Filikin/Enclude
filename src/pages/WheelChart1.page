@@ -1,0 +1,12 @@
+<apex:page standardcontroller="Contact" Extensions="WheelChartController" title="Outcome Wheel Chart" action="{!extractData}">
+    <apex:chart height="265" width="700" legend="true" data="{!wheeldata}" rendered="{!anyData}">
+        <apex:legend position="left"/>
+        <apex:axis type="Radial" position="radial" minimum="0" maximum="10">
+            <apex:chartLabel />
+        </apex:axis>
+        <apex:radarSeries xField="name" yField="data1" title="Admission" tips="true" opacity="0.4"/>
+        <apex:radarSeries xField="name" yField="data2" title="Week 4" tips="true" markerType="cross" strokeWidth="2" strokeColor="#f33" opacity="0.4"/>
+        <apex:radarSeries xField="name" yField="data3" title="Week 9" tips="true" opacity="0.4"/>
+        <apex:radarSeries xField="name" yField="data4" title="Departure" tips="true" markerType="cross" strokeWidth="2" strokeColor="#f33" opacity="0.4"/>
+    </apex:chart>
+ </apex:page>

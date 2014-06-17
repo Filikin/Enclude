@@ -1,0 +1,24 @@
+<apex:page showHeader="false" id="SiteTemplate">
+  <apex:stylesheet value="{!URLFOR($Resource.SiteSamples, 'SiteStyles.css')}"/>
+  <apex:insert name="header">
+    <c:SiteHeader />
+    <hr/>
+  </apex:insert>
+  <apex:insert name="body"/>
+  <apex:insert name="footer">
+    <hr/>
+    <h2>Welcome to Carmichael Centre - Training and Support Services<br>
+MTP Programme - Relationship Management Technology</h2><br>
+<br>
+
+</h2>
+
+
+I am delighted to be delivering this course.
+Thank you for the active participation in the four sessions.<br>
+The Presentation Slides are available in the Documents Tab <br>
+</p>
+    <c:SiteFooter />
+    <site:googleAnalyticsTracking />
+  </apex:insert>
+</apex:page>
