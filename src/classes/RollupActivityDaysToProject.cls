@@ -65,7 +65,7 @@ public with sharing class RollupActivityDaysToProject
 				if (oneCase.Effort_to_resolve_hours__c != null) 
 				{
 					oneProject.Total_activity_days__c += oneCase.Effort_to_resolve_hours__c * 60;
-					if (oneCase.Due_Date__c.year() == thisYear) oneProject.Activity_days_this_year__c += oneCase.Effort_to_resolve_hours__c;
+					if (oneCase.Due_Date__c.year() == thisYear) oneProject.Activity_days_this_year__c += oneCase.Effort_to_resolve_hours__c * 60;
 				}
 			}
 			oneProject.Total_activity_days__c /= (60 * 7.5);
